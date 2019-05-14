@@ -13,30 +13,22 @@ public class Character : MonoBehaviour
     public List<Ability> Skills = new List<Ability>();
     public List<Ability> Perks = new List<Ability>();
 
+    public List<Skill> ClickSkills = new List<Skill>();
+
     void Start()
     {
-        AddPerk(new DoubleTime());
+        Skills.Add(new BulletSkill());
+        Perks.Add(new DoubleTime());
         LoadAll();
+        ClickSkills.Add(Skills[0] as Skill);
     }
     public void LoadAll()
     {
-        AbilityLoader.LoadAbilities(Skills, this);
-        AbilityLoader.LoadAbilities(Perks, this);
-        AbilityLoader.LoadAbilities(Classes, this);
+        AbilityLoader.LoadAbilities(Skills, gameObject);
+        AbilityLoader.LoadAbilities(Perks, gameObject);
+        AbilityLoader.LoadAbilities(Classes, gameObject);
+
     }
 
-    public void AddSkill(Ability ability)
-    {
-        Skills.Add(ability);
-    }
 
-    public void AddClass(Ability ability)
-    {
-        Classes.Add(ability);
-    }
-
-    public void AddPerk(Ability ability)
-    {
-        Perks.Add(ability);
-    }
 }

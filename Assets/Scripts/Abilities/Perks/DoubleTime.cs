@@ -13,10 +13,13 @@ public class DoubleTime : Perk
         description = "Doubles movement speed of character";
     }
 
-    public void Load(Character character)
+    public void Load(GameObject owner)
     {
-        Debug.Log(abilityName + " "  + description);
-        character.movementSpeed *= 2;
+        owner.GetComponent<Character>().movementSpeed *= 2;
     }
     
+    public override string ToString()
+    {
+        return abilityName + " " + description;
+    }
 }

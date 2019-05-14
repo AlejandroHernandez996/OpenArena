@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface Ability
 {
-    void Load(Character character);
+    void Load(GameObject owner);
 
 }

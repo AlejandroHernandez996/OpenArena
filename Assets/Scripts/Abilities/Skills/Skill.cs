@@ -4,4 +4,7 @@ using UnityEngine;
 
 public interface Skill : Ability
 {
+
+    void OnActivation();
+
 }
